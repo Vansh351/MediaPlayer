@@ -13,7 +13,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Playlist } from '../types';
 import { mediaService } from '../services/MediaService';
 import { usePlayer } from '../hooks/usePlayer';
-import { useFocusEffect } from '@react-navigation/native'; // 1. Import useFocusEffect
+import { useFocusEffect } from '@react-navigation/native';
 
 type naviagtionProps = {
   navigation: any;
@@ -138,16 +138,6 @@ export const PlaylistsScreen: React.FC<naviagtionProps> = ({ navigation }) => {
         </View>
         
         <View style={styles.playlistActions}>
-          {/* <TouchableOpacity
-            style={styles.actionButton}
-            onPress={(e) => {
-              e.stopPropagation();
-              handlePlayPlaylist(item);
-            }}
-          >
-            <Ionicons name="play" size={20} color="#007AFF" />
-          </TouchableOpacity> */}
-          
           <TouchableOpacity
             style={styles.actionButton}
             onPress={(e) => {
@@ -224,16 +214,18 @@ export const PlaylistsScreen: React.FC<naviagtionProps> = ({ navigation }) => {
           </View>
 
           <View style={styles.modalContent}>
+            <Text style={styles.inputLabel}>Name</Text>
             <TextInput
               style={styles.input}
-              placeholder="Playlist Name"
+              placeholder="My Awesome Playlist"
               value={newPlaylistName}
               onChangeText={setNewPlaylistName}
               autoFocus
             />
+            <Text style={styles.inputLabel}>Description</Text>
             <TextInput
               style={[styles.input, styles.textArea]}
-              placeholder="Description (optional)"
+              placeholder="Optional"
               value={newPlaylistDescription}
               onChangeText={setNewPlaylistDescription}
               multiline
@@ -272,7 +264,6 @@ const styles = StyleSheet.create({
     color: '#007AFF',
     fontSize: 16,
     fontWeight: '600',
-    marginLeft: 8,
   },
   header: {
     flexDirection: 'row',
@@ -357,12 +348,19 @@ const styles = StyleSheet.create({
   modalContent: {
     padding: 16,
   },
+  inputLabel: {
+    fontSize: 14,
+    fontWeight: '500',
+    color: '#8E8E93',
+    marginBottom: 8,
+    marginLeft: 4,
+  },
   input: {
     backgroundColor: '#FFFFFF',
     padding: 16,
     borderRadius: 12,
     fontSize: 16,
-    marginBottom: 16,
+    marginBottom: 20,
     borderWidth: 1,
     borderColor: '#E5E5EA',
   },
