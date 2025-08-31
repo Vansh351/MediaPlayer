@@ -8,25 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		3C41E35E3DD0CD0199038B51 /* libPods-MediaPlayerApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E12F45F459ABAE5C231589B /* libPods-MediaPlayerApp.a */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		54F3301A2B36EDC4C4DC1301 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AEBAD1CB4499D0698E36BE8 /* ExpoModulesProvider.swift */; };
-		607ABCD978CDCD04E43F08A7 /* libPods-MediaPlayerApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C5F765F7B4AAEF609C7E30C /* libPods-MediaPlayerApp.a */; };
-		665468742C6FE750DD74E36E /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A62C2A2AA1D56C51FA2F704D /* PrivacyInfo.xcprivacy */; };
+		B4180AA77AE84FE46130A585 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 6F2074E76D62DDA189BCDAEB /* PrivacyInfo.xcprivacy */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
+		C096A834470DC15EC67C8302 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FB8FD2BC0466986A3FC6FB /* ExpoModulesProvider.swift */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08B0717269B8666989C4488E /* Pods-MediaPlayerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediaPlayerApp.release.xcconfig"; path = "Target Support Files/Pods-MediaPlayerApp/Pods-MediaPlayerApp.release.xcconfig"; sourceTree = "<group>"; };
+		0AFB132ACD0CB63772DB01A5 /* Pods-MediaPlayerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediaPlayerApp.debug.xcconfig"; path = "Target Support Files/Pods-MediaPlayerApp/Pods-MediaPlayerApp.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* MediaPlayerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaPlayerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MediaPlayerApp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = MediaPlayerApp/Info.plist; sourceTree = "<group>"; };
-		4C5F765F7B4AAEF609C7E30C /* libPods-MediaPlayerApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MediaPlayerApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6AEBAD1CB4499D0698E36BE8 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-MediaPlayerApp/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		A62C2A2AA1D56C51FA2F704D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = MediaPlayerApp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		A64D8A23FA49F57AA3D6FCDA /* Pods-MediaPlayerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediaPlayerApp.debug.xcconfig"; path = "Target Support Files/Pods-MediaPlayerApp/Pods-MediaPlayerApp.debug.xcconfig"; sourceTree = "<group>"; };
+		4E12F45F459ABAE5C231589B /* libPods-MediaPlayerApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MediaPlayerApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F2074E76D62DDA189BCDAEB /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = MediaPlayerApp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		83FB8FD2BC0466986A3FC6FB /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-MediaPlayerApp/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = MediaPlayerApp/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		CFF2950BF79FD18DCDDB3D1A /* Pods-MediaPlayerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediaPlayerApp.release.xcconfig"; path = "Target Support Files/Pods-MediaPlayerApp/Pods-MediaPlayerApp.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = MediaPlayerApp/AppDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* MediaPlayerApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MediaPlayerApp-Bridging-Header.h"; path = "MediaPlayerApp/MediaPlayerApp-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -37,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607ABCD978CDCD04E43F08A7 /* libPods-MediaPlayerApp.a in Frameworks */,
+				3C41E35E3DD0CD0199038B51 /* libPods-MediaPlayerApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,7 +53,7 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				A62C2A2AA1D56C51FA2F704D /* PrivacyInfo.xcprivacy */,
+				6F2074E76D62DDA189BCDAEB /* PrivacyInfo.xcprivacy */,
 			);
 			name = MediaPlayerApp;
 			sourceTree = "<group>";
@@ -62,15 +62,15 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				4C5F765F7B4AAEF609C7E30C /* libPods-MediaPlayerApp.a */,
+				4E12F45F459ABAE5C231589B /* libPods-MediaPlayerApp.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		42E7CA3DD5F27CCF20BAB612 /* ExpoModulesProviders */ = {
+		78CF0721907D8948C649671C /* ExpoModulesProviders */ = {
 			isa = PBXGroup;
 			children = (
-				9585FE2A103F49C10E438FDC /* MediaPlayerApp */,
+				D8910EB97B25980BC9D0E4E2 /* MediaPlayerApp */,
 			);
 			name = ExpoModulesProviders;
 			sourceTree = "<group>";
@@ -89,8 +89,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				A984CEB3383040656BA61D11 /* Pods */,
-				42E7CA3DD5F27CCF20BAB612 /* ExpoModulesProviders */,
+				98A1A93C5CA0D93323DA2310 /* Pods */,
+				78CF0721907D8948C649671C /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -105,19 +105,11 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9585FE2A103F49C10E438FDC /* MediaPlayerApp */ = {
+		98A1A93C5CA0D93323DA2310 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6AEBAD1CB4499D0698E36BE8 /* ExpoModulesProvider.swift */,
-			);
-			name = MediaPlayerApp;
-			sourceTree = "<group>";
-		};
-		A984CEB3383040656BA61D11 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				A64D8A23FA49F57AA3D6FCDA /* Pods-MediaPlayerApp.debug.xcconfig */,
-				CFF2950BF79FD18DCDDB3D1A /* Pods-MediaPlayerApp.release.xcconfig */,
+				0AFB132ACD0CB63772DB01A5 /* Pods-MediaPlayerApp.debug.xcconfig */,
+				08B0717269B8666989C4488E /* Pods-MediaPlayerApp.release.xcconfig */,
 			);
 			name = Pods;
 			path = Pods;
@@ -132,6 +124,14 @@
 			path = MediaPlayerApp/Supporting;
 			sourceTree = "<group>";
 		};
+		D8910EB97B25980BC9D0E4E2 /* MediaPlayerApp */ = {
+			isa = PBXGroup;
+			children = (
+				83FB8FD2BC0466986A3FC6FB /* ExpoModulesProvider.swift */,
+			);
+			name = MediaPlayerApp;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,13 +140,13 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "MediaPlayerApp" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				18DE24EB48444ECDD94438A9 /* [Expo] Configure project */,
+				B6E66894AEA5C6BC43E69206 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				6AB315E8F5CB39DC286400CC /* [CP] Embed Pods Frameworks */,
+				5FA04FB3B364480A06CC8B33 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,7 +196,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				665468742C6FE750DD74E36E /* PrivacyInfo.xcprivacy in Resources */,
+				B4180AA77AE84FE46130A585 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,26 +240,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		18DE24EB48444ECDD94438A9 /* [Expo] Configure project */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[Expo] Configure project";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-MediaPlayerApp/expo-configure-project.sh\"\n";
-		};
-		6AB315E8F5CB39DC286400CC /* [CP] Embed Pods Frameworks */ = {
+		5FA04FB3B364480A06CC8B33 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -317,6 +298,25 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MediaPlayerApp/Pods-MediaPlayerApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B6E66894AEA5C6BC43E69206 /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-MediaPlayerApp/expo-configure-project.sh\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -325,7 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				54F3301A2B36EDC4C4DC1301 /* ExpoModulesProvider.swift in Sources */,
+				C096A834470DC15EC67C8302 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,7 +334,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A64D8A23FA49F57AA3D6FCDA /* Pods-MediaPlayerApp.debug.xcconfig */;
+			baseConfigurationReference = 0AFB132ACD0CB63772DB01A5 /* Pods-MediaPlayerApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -370,7 +370,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CFF2950BF79FD18DCDDB3D1A /* Pods-MediaPlayerApp.release.xcconfig */;
+			baseConfigurationReference = 08B0717269B8666989C4488E /* Pods-MediaPlayerApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
