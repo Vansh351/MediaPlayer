@@ -32,30 +32,30 @@ export const PlaylistDetailScreen: React.FC = () => {
 
   const { playlistId } = route.params as { playlistId: string };
 
-  useEffect(() => {
-    const fetchPlaylist = async () => {
-      try {
+  const refreshPlaylist = async () => {
+    try {
+      if (!playlist) {
         setLoading(true);
-        const fetchedPlaylist = await mediaService.getPlaylistById(playlistId);
-        if (fetchedPlaylist) {
-          setPlaylist(fetchedPlaylist);
-          navigation.setOptions({ title: fetchedPlaylist.name });
-        } else {
-          Alert.alert("Error", "Playlist not found.", [
-            { text: "OK", onPress: () => navigation.goBack() },
-          ]);
-        }
-      } catch (error) {
-        console.error("Failed to load playlist:", error);
-        Alert.alert("Error", "Failed to load playlist details.");
-      } finally {
-        setLoading(false);
       }
-    };
+      const fetchedPlaylist = await mediaService.getPlaylistById(playlistId);
+      if (fetchedPlaylist) {
+        setPlaylist(fetchedPlaylist);
+        navigation.setOptions({ title: fetchedPlaylist.name });
+      } else {
+        Alert.alert("Error", "Playlist not found.", [
+          { text: "OK", onPress: () => navigation.goBack() },
+        ]);
+      }
+    } catch (error) {
+      Alert.alert("Error", "Failed to load playlist details.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    fetchPlaylist();
+  useEffect(() => {
+    refreshPlaylist();
   }, [playlistId]);
-
 
   const openAddTracksModal = async () => {
     if (!playlist) return;
@@ -92,9 +92,9 @@ export const PlaylistDetailScreen: React.FC = () => {
           mediaService.addToPlaylist(playlist.id, track)
         )
       );
-      setPlaylist((prev) =>
-        prev ? { ...prev, tracks: [...prev.tracks, ...tracksToAdd] } : null
-      );
+
+      await refreshPlaylist();
+
       Alert.alert(
         "Success",
         `${tracksToAdd.length} ${
@@ -102,14 +102,13 @@ export const PlaylistDetailScreen: React.FC = () => {
         } added.`
       );
     } catch (error) {
-      console.error("Failed to add selected tracks:", error);
+      //console.error("Failed to add selected tracks:", error);
       Alert.alert("Error", "Could not add songs.");
     } finally {
       setAddTracksModalVisible(false);
       setSelectedModalTracks(new Set());
     }
   };
-
 
   const handleRemoveTrack = (trackId: string) => {
     if (!playlist) return;
@@ -124,16 +123,22 @@ export const PlaylistDetailScreen: React.FC = () => {
           text: "Remove",
           style: "destructive",
           onPress: async () => {
+            const originalPlaylist = playlist;
+
+            setPlaylist((p) =>
+              p
+                ? { ...p, tracks: p.tracks.filter((t) => t.id !== trackId) }
+                : null
+            );
+
             try {
-              await mediaService.removeFromPlaylist(playlist.id, trackId);
-              setPlaylist((p) =>
-                p
-                  ? { ...p, tracks: p.tracks.filter((t) => t.id !== trackId) }
-                  : null
+              await mediaService.removeFromPlaylist(
+                originalPlaylist.id,
+                trackId
               );
             } catch (error) {
-              console.error("Failed to remove track:", error);
               Alert.alert("Error", "Failed to remove track.");
+              setPlaylist(originalPlaylist);
             }
           },
         },
@@ -154,8 +159,6 @@ export const PlaylistDetailScreen: React.FC = () => {
     }
   };
 
-  // --- Helper calculations and formatting ---
-
   const formatDuration = (seconds: number): string => {
     const hours = Math.floor(seconds / 3600);
     const mins = Math.floor((seconds % 3600) / 60);
@@ -173,7 +176,6 @@ export const PlaylistDetailScreen: React.FC = () => {
     if (!playlist) return 0;
     return playlist.tracks.reduce((sum, track) => sum + track.duration, 0);
   }, [playlist]);
-
 
   const renderHeader = () => (
     <View style={styles.headerContainer}>
@@ -222,7 +224,10 @@ export const PlaylistDetailScreen: React.FC = () => {
       <Text style={styles.trackDuration}>{formatDuration(item.duration)}</Text>
       <TouchableOpacity
         style={styles.removeButton}
-        onPress={() => handleRemoveTrack(item.id)}
+        onPress={(e) => {
+          e.stopPropagation();
+          handleRemoveTrack(item.id);
+        }}
       >
         <Ionicons name="trash-outline" size={20} color="#FF3B30" />
       </TouchableOpacity>
@@ -307,7 +312,6 @@ export const PlaylistDetailScreen: React.FC = () => {
     </SafeAreaView>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "#F2F2F7" },

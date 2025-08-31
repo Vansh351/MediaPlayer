@@ -34,7 +34,7 @@ class AudioPlayerService {
         playThroughEarpieceAndroid: false,
       });
     } catch (error) {
-      console.error('Failed to setup audio session:', error);
+      //console.error('Failed to setup audio session:', error);
     }
   }
 
@@ -56,7 +56,7 @@ class AudioPlayerService {
       this.playerState.position = 0;
       this.notifyListeners();
     } catch (error) {
-      console.error('Failed to load track:', error);
+      //console.error('Failed to load track:', error);
       throw error;
     }
   }
@@ -70,7 +70,7 @@ class AudioPlayerService {
         this.notifyListeners();
       }
     } catch (error) {
-      console.error('Failed to play:', error);
+      //console.error('Failed to play:', error);
       throw error;
     }
   }
@@ -84,7 +84,7 @@ class AudioPlayerService {
         this.notifyListeners();
       }
     } catch (error) {
-      console.error('Failed to pause:', error);
+      //console.error('Failed to pause:', error);
       throw error;
     }
   }
@@ -100,7 +100,7 @@ class AudioPlayerService {
         this.notifyListeners();
       }
     } catch (error) {
-      console.error('Failed to stop:', error);
+      //console.error('Failed to stop:', error);
       throw error;
     }
   }
@@ -113,7 +113,7 @@ class AudioPlayerService {
         this.notifyListeners();
       }
     } catch (error) {
-      console.error('Failed to seek:', error);
+      //console.error('Failed to seek:', error);
       throw error;
     }
   }
@@ -126,7 +126,7 @@ class AudioPlayerService {
         this.notifyListeners();
       }
     } catch (error) {
-      console.error('Failed to set volume:', error);
+      //console.error('Failed to set volume:', error);
       throw error;
     }
   }
@@ -139,7 +139,7 @@ class AudioPlayerService {
         this.notifyListeners();
       }
     } catch (error) {
-      console.error('Failed to set playback rate:', error);
+      //console.error('Failed to set playback rate:', error);
       throw error;
     }
   }
