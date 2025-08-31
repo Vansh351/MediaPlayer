@@ -20,9 +20,9 @@ export default function App() {
   const initializeApp = async () => {
     try {
       await mediaService.initialize();
-      console.log('Media service initialized successfully');
+      // console.log('Media service initialized successfully');
     } catch (error) {
-      console.error('Failed to initialize app:', error);
+      // console.error('Failed to initialize app:', error);
     }
   };
 

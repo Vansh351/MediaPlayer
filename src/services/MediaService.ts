@@ -11,7 +11,7 @@ class MediaService {
 
   async initialize(): Promise<void> {
     try {
-      console.log('Initializing media service...');
+      // console.log('Initializing media service...');
       
       // Request permissions with specific audio context
       const { status } = await MediaLibrary.requestPermissionsAsync();
@@ -107,7 +107,7 @@ class MediaService {
                 mediaItem.albumId = album.id;
               }
             } catch (albumError) {
-              console.log('Could not fetch album info for asset:', asset.id);
+              // console.log('Could not fetch album info for asset:', asset.id);
             }
           }
 
@@ -117,7 +117,7 @@ class MediaService {
 
       return this.mediaItems;
     } catch (error) {
-      console.error('Failed to scan media library:', error);
+      // console.error('Failed to scan media library:', error);
       // If no media found, provide sample tracks for testing
       if (this.mediaItems.length === 0) {
         this.mediaItems = SampleAudioService.getSampleTracks();
@@ -245,7 +245,7 @@ class MediaService {
       const playlistsPath = `${FileSystem.documentDirectory}playlists.json`;
       await FileSystem.writeAsStringAsync(playlistsPath, JSON.stringify(this.playlists));
     } catch (error) {
-      console.error('Failed to save playlists:', error);
+      // console.error('Failed to save playlists:', error);
       throw error;
     }
   }

@@ -18,7 +18,7 @@ export const usePlayer = () => {
     try {
       await audioPlayerService.play();
     } catch (error) {
-      console.error('Failed to play:', error);
+      //console.error('Failed to play:', error);
     }
   };
 
@@ -26,7 +26,7 @@ export const usePlayer = () => {
     try {
       await audioPlayerService.pause();
     } catch (error) {
-      console.error('Failed to pause:', error);
+      //console.error('Failed to pause:', error);
     }
   };
 
@@ -34,7 +34,7 @@ export const usePlayer = () => {
     try {
       await audioPlayerService.stop();
     } catch (error) {
-      console.error('Failed to stop:', error);
+      //console.error('Failed to stop:', error);
     }
   };
 
@@ -42,7 +42,7 @@ export const usePlayer = () => {
     try {
       await audioPlayerService.seekTo(position);
     } catch (error) {
-      console.error('Failed to seek:', error);
+      //console.error('Failed to seek:', error);
     }
   };
 
@@ -50,7 +50,7 @@ export const usePlayer = () => {
     try {
       await audioPlayerService.setVolume(volume);
     } catch (error) {
-      console.error('Failed to set volume:', error);
+      //console.error('Failed to set volume:', error);
     }
   };
 
@@ -58,7 +58,7 @@ export const usePlayer = () => {
     try {
       await audioPlayerService.setPlaybackRate(rate);
     } catch (error) {
-      console.error('Failed to set playback rate:', error);
+      //console.error('Failed to set playback rate:', error);
     }
   };
 
@@ -66,7 +66,7 @@ export const usePlayer = () => {
     try {
       await audioPlayerService.skipToNext();
     } catch (error) {
-      console.error('Failed to skip to next:', error);
+      //console.error('Failed to skip to next:', error);
     }
   };
 
@@ -74,7 +74,7 @@ export const usePlayer = () => {
     try {
       await audioPlayerService.skipToPrevious();
     } catch (error) {
-      console.error('Failed to skip to previous:', error);
+      //console.error('Failed to skip to previous:', error);
     }
   };
 
@@ -83,7 +83,7 @@ export const usePlayer = () => {
       await audioPlayerService.loadTrack(mediaItem);
       await audioPlayerService.play();
     } catch (error) {
-      console.error('Failed to play track:', error);
+      //console.error('Failed to play track:', error);
     }
   };
 
@@ -91,7 +91,7 @@ export const usePlayer = () => {
     try {
       await audioPlayerService.playPlaylist(playlist, startIndex);
     } catch (error) {
-      console.error('Failed to play playlist:', error);
+      //console.error('Failed to play playlist:', error);
     }
   };
 
