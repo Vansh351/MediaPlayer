@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   View,
   Text,
@@ -13,10 +13,11 @@ import { Ionicons } from '@expo/vector-icons';
 import { Playlist } from '../types';
 import { mediaService } from '../services/MediaService';
 import { usePlayer } from '../hooks/usePlayer';
+import { useFocusEffect } from '@react-navigation/native'; // 1. Import useFocusEffect
 
 type naviagtionProps = {
-	navigation: any;
-	route: any;
+  navigation: any;
+  route: any;
 }
 
 export const PlaylistsScreen: React.FC<naviagtionProps> = ({ navigation }) => {
@@ -27,22 +28,25 @@ export const PlaylistsScreen: React.FC<naviagtionProps> = ({ navigation }) => {
   const [newPlaylistDescription, setNewPlaylistDescription] = useState('');
   const { playPlaylist } = usePlayer();
 
-  useEffect(() => {
-    loadPlaylists();
-  }, []);
-
   const loadPlaylists = async () => {
     try {
       setLoading(true);
       const playlistsData = await mediaService.getPlaylists();
       setPlaylists(playlistsData);
     } catch (error) {
-      console.error('Failed to load playlists:', error);
+      //console.error('Failed to load playlists:', error);
       Alert.alert('Error', 'Failed to load playlists');
     } finally {
       setLoading(false);
     }
   };
+
+  // This hook will run the `loadPlaylists` function every time the screen comes into focus.
+  useFocusEffect(
+    useCallback(() => {
+      loadPlaylists();
+    }, [])
+  );
 
   const handleCreatePlaylist = async () => {
     if (!newPlaylistName.trim()) {
@@ -55,23 +59,23 @@ export const PlaylistsScreen: React.FC<naviagtionProps> = ({ navigation }) => {
         newPlaylistName.trim(),
         newPlaylistDescription.trim() || undefined
       );
-      setPlaylists([...playlists, newPlaylist]);
+      await loadPlaylists();
       setShowCreateModal(false);
       setNewPlaylistName('');
       setNewPlaylistDescription('');
-			navigation.navigate('PlaylistDetail', { playlistId: newPlaylist?.id });
+      navigation.navigate('PlaylistDetail', { playlistId: newPlaylist?.id });
     } catch (error) {
-      console.error('Failed to create playlist:', error);
+      //console.error('Failed to create playlist:', error);
       Alert.alert('Error', 'Failed to create playlist');
     }
   };
 
   const handlePlayPlaylist = async (playlist: Playlist) => {
     try {
-			console.log("🚀 ~ handlePlayPlaylist ~ handlePlayPlaylist:")
-			navigation.navigate('PlaylistDetail', { playlistId: playlist?.id });
+      //console.log("handlePlayPlaylist ~ handlePlayPlaylist:")
+      navigation.navigate('PlaylistDetail', { playlistId: playlist?.id });
     } catch (error) {
-      console.error('Failed to play playlist:', error);
+      //console.error('Failed to play playlist:', error);
       Alert.alert('Error', 'Failed to play playlist');
     }
   };
@@ -88,10 +92,12 @@ export const PlaylistsScreen: React.FC<naviagtionProps> = ({ navigation }) => {
           onPress: async () => {
             try {
               await mediaService.deletePlaylist(playlist.id);
+              // Optimistically update for instant feedback
               setPlaylists(playlists.filter(p => p.id !== playlist.id));
             } catch (error) {
-              console.error('Failed to delete playlist:', error);
+              //console.error('Failed to delete playlist:', error);
               Alert.alert('Error', 'Failed to delete playlist');
+              loadPlaylists();
             }
           },
         },
@@ -155,28 +161,28 @@ export const PlaylistsScreen: React.FC<naviagtionProps> = ({ navigation }) => {
       </TouchableOpacity>
     );
   };
-	
-	const openModal = () => {
-		console.log('Opening create playlist modal...');
-		setShowCreateModal(true);
-	}
+  
+  const openModal = () => {
+    //console.log('Opening create playlist modal...');
+    setShowCreateModal(true);
+  }
 
   const renderHeader = () => (
     <View style={styles.header}>
-			<View>
-				<Text style={styles.title}>Playlists</Text>
-				<Text style={styles.subtitle}>
-					{playlists.length} {playlists.length === 1 ? 'playlist' : 'playlists'}
-				</Text>
-			</View>
-			<View>
-			<TouchableOpacity
-				style={styles.createButton}
-				onPress={openModal}
-			>
-				<Ionicons name="add" size={24} color="#FFFFFF" />
-			</TouchableOpacity>
-			</View>
+      <View>
+        <Text style={styles.title}>Playlists</Text>
+        <Text style={styles.subtitle}>
+          {playlists.length} {playlists.length === 1 ? 'playlist' : 'playlists'}
+        </Text>
+      </View>
+      <View>
+      <TouchableOpacity
+        style={styles.createButton}
+        onPress={openModal}
+      >
+        <Ionicons name="add" size={24} color="#FFFFFF" />
+      </TouchableOpacity>
+      </View>
     </View>
   );
 
@@ -189,8 +195,8 @@ export const PlaylistsScreen: React.FC<naviagtionProps> = ({ navigation }) => {
   }
 
   return (
-		<>
-		<View style={styles.container}>
+    <>
+    <View style={styles.container}>
       <FlatList
         data={playlists}
         renderItem={renderPlaylist}
@@ -200,11 +206,11 @@ export const PlaylistsScreen: React.FC<naviagtionProps> = ({ navigation }) => {
         contentContainerStyle={styles.listContainer}
       />
     </View>
-		<Modal
+    <Modal
         visible={showCreateModal}
         animationType="slide"
         presentationStyle="pageSheet"
-				style={{ maxHeight: 60}}
+        style={{ maxHeight: 60}}
       >
         <View style={styles.modalContainer}>
           <View style={styles.modalHeader}>
@@ -236,7 +242,7 @@ export const PlaylistsScreen: React.FC<naviagtionProps> = ({ navigation }) => {
           </View>
         </View>
       </Modal>
-		</>
+    </>
   );
 };
 
@@ -269,14 +275,14 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   header: {
-		flexDirection: 'row',
-		justifyContent: 'space-between',
-		alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     padding: 16,
     backgroundColor: '#FFFFFF',
     borderBottomWidth: 1,
     borderColor: '#E5E5EA',
-		borderTopWidth: 1
+    borderTopWidth: 1
   },
   title: {
     fontSize: 23,
